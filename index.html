@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resting in God - Season 6: Living Lightly</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-color: #365233;
+            --brand-light: #e9ede9;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfdfc;
+            color: #2d3748;
+        }
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .bg-brand { background-color: var(--brand-color); }
+        .text-brand { color: var(--brand-color); }
+        .border-brand { border-color: var(--brand-color); }
+        .bg-brand-light { background-color: var(--brand-light); }
+        
+        .tab-active {
+            border-bottom: 4px solid var(--brand-color);
+            color: var(--brand-color);
+            font-weight: 600;
+        }
+        .content-card {
+            animation: fadeIn 0.4s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-brand text-white py-12 px-6 text-center shadow-lg">
+        <div class="max-w-4xl mx-auto">
+            <p class="uppercase tracking-widest text-sm opacity-90 mb-2">Season 6</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Living Lightly</h1>
+            <p class="text-lg italic opacity-80">Learning Simplicity, Trust, and Freedom From Unnecessary Burdens</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        
+        <!-- Tab Navigation -->
+        <div class="flex overflow-x-auto border-b border-gray-200 mb-8 scrollbar-hide no-scrollbar">
+            <button onclick="switchTab('intro')" id="tab-intro" class="tab-btn py-4 px-6 whitespace-nowrap tab-active">Intro</button>
+            <button onclick="switchTab('day26')" id="tab-day26" class="tab-btn py-4 px-6 whitespace-nowrap text-gray-500 hover:text-brand transition">Day 26</button>
+            <button onclick="switchTab('day27')" id="tab-day27" class="tab-btn py-4 px-6 whitespace-nowrap text-gray-500 hover:text-brand transition">Day 27</button>
+            <button onclick="switchTab('day28')" id="tab-day28" class="tab-btn py-4 px-6 whitespace-nowrap text-gray-500 hover:text-brand transition">Day 28</button>
+            <button onclick="switchTab('day29')" id="tab-day29" class="tab-btn py-4 px-6 whitespace-nowrap text-gray-500 hover:text-brand transition">Day 29</button>
+            <button onclick="switchTab('day30')" id="tab-day30" class="tab-btn py-4 px-6 whitespace-nowrap text-gray-500 hover:text-brand transition">Day 30</button>
+        </div>
+
+        <!-- Content Area -->
+        <div id="content">
+            
+            <!-- Intro Tab -->
+            <div id="intro" class="tab-content content-card">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+                    <h2 class="text-3xl font-bold text-brand mb-6">How to Use These Guidelines</h2>
+                    <div class="prose prose-green max-w-none text-gray-700 leading-relaxed">
+                        <p class="mb-4">Many people carry more than they were meant to carry. We fill our lives with hurry, clutter, pressure, comparison, worry, and endless striving. Over time, the soul becomes heavy.</p>
+                        <p class="mb-6 font-semibold italic text-brand">This season is an invitation to live more lightly with God.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 my-8">
+                            <div class="bg-brand-light p-6 rounded-xl border-l-4 border-brand">
+                                <h3 class="font-bold text-brand mb-2">The Invitation</h3>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Slow your pace</li>
+                                    <li>Simplify your surroundings</li>
+                                    <li>Loosen your grip on control</li>
+                                    <li>Receive life as a gift</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl border border-gray-200">
+                                <h3 class="font-bold text-brand mb-2">Simplicity</h3>
+                                <p class="text-sm italic">"Simplicity is not about having less for its own sake. It is about creating more space for peace, presence, and trust in God."</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-brand mt-8 mb-4">Your Daily Rhythm</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <span class="bg-brand text-white rounded-full h-6 w-6 flex items-center justify-center text-xs font-bold mr-3 mt-1 shrink-0">B</span>
+                                <div><strong>BEFORE:</strong> Prepare your heart by identifying burdens, distractions, or pressures you may need to release.</div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="bg-brand text-white rounded-full h-6 w-6 flex items-center justify-center text-xs font-bold mr-3 mt-1 shrink-0">D</span>
+                                <div><strong>DURING:</strong> Practice rhythms of simplicity, trust, contentment, and peaceful living.</div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="bg-brand text-white rounded-full h-6 w-6 flex items-center justify-center text-xs font-bold mr-3 mt-1 shrink-0">A</span>
+                                <div><strong>AFTER:</strong> Reflect on what helped your soul feel lighter and freer.</div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12 text-center py-8 border-t border-gray-100">
+                            <p class="serif text-2xl italic text-gray-600 mb-2">"Come to me, all who labor and are heavy laden, and I will give you rest."</p>
+                            <p class="font-bold text-brand">Matthew 11:28</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day Tabs (Generated via Template Pattern) -->
+            <!-- Day 26 -->
+            <div id="day26" class="tab-content content-card hidden">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-8">
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> Before
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Notice areas of physical, emotional, or mental clutter in your life.</li>
+                                <li class="bg-brand-light p-4 rounded-lg italic">"Lord, help me release what I do not truly need."</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Choose one small area you can simplify today.</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> During
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Read <strong>Luke 12:22-31</strong> slowly.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Spend time organizing or clearing a small space peacefully and unhurriedly.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Avoid buying or accumulating unnecessary things today.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Notice how simplicity affects your emotional state.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Spend time enjoying what you already have.</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> After
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="font-semibold">Reflect:</li>
+                                <li class="ml-4">What kinds of excess weigh me down?</li>
+                                <li class="ml-4">How did simplicity affect my peace today?</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Thank God for His daily provision.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> End your Sabbath with gratitude for enough.</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <!-- Reflection Form -->
+                    <div class="bg-gray-50 border-t border-gray-100 p-8">
+                        <label class="block text-brand font-bold mb-2">Record your reflections:</label>
+                        <textarea id="reflect-26" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand focus:border-transparent transition h-32" placeholder="How did simplicity affect your peace today?"></textarea>
+                        <div class="mt-4 flex flex-col md:flex-row gap-4">
+                            <input id="email-26" type="email" placeholder="Recipient's email" class="flex-grow p-2 rounded-lg border border-gray-200 text-sm">
+                            <button onclick="sendEmail(26)" class="bg-brand text-white px-6 py-2 rounded-lg font-bold hover:opacity-90 transition">Email Reflections</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 27 -->
+            <div id="day27" class="tab-content content-card hidden">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-8">
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> Before
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Acknowledge worries about the future honestly before God.</li>
+                                <li class="bg-brand-light p-4 rounded-lg italic">"Lord, teach me to trust You one day at a time."</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Release the need to solve everything immediately.</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> During
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Read <strong>Matthew 6:25-34</strong> slowly.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Resist anxious planning throughout the day.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Whenever future worries arise, pause and breathe deeply.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Spend time doing something peaceful and grounding.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Practice staying present in today rather than living mentally in tomorrow.</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> After
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="font-semibold">Reflect:</li>
+                                <li class="ml-4">What future concerns are hardest for me to release?</li>
+                                <li class="ml-4">What helped me remain present today?</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Entrust your future to God again in prayer.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Rest in the awareness that God cares for you.</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="bg-gray-50 border-t border-gray-100 p-8">
+                        <label class="block text-brand font-bold mb-2">Record your reflections:</label>
+                        <textarea id="reflect-27" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand focus:border-transparent transition h-32" placeholder="What helped you remain present today?"></textarea>
+                        <div class="mt-4 flex flex-col md:flex-row gap-4">
+                            <input id="email-27" type="email" placeholder="Recipient's email" class="flex-grow p-2 rounded-lg border border-gray-200 text-sm">
+                            <button onclick="sendEmail(27)" class="bg-brand text-white px-6 py-2 rounded-lg font-bold hover:opacity-90 transition">Email Reflections</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 28 -->
+            <div id="day28" class="tab-content content-card hidden">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-8">
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> Before
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Notice any feelings of dissatisfaction, comparison, or striving.</li>
+                                <li class="bg-brand-light p-4 rounded-lg italic">"Lord, help me receive today as enough."</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Avoid unnecessary scrolling or comparison before your Sabbath begins.</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> During
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Read <strong>Philippians 4:11-13</strong> slowly.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Practice contentment throughout the day.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Enjoy ordinary things without needing more stimulation.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Resist comparing your life with others.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Spend time appreciating simple blessings already present in your life.</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> After
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="font-semibold">Reflect:</li>
+                                <li class="ml-4">What makes it difficult for me to feel content?</li>
+                                <li class="ml-4">What helped me experience enoughness today?</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Thank God for sustaining you faithfully.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> End your Sabbath peacefully.</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="bg-gray-50 border-t border-gray-100 p-8">
+                        <label class="block text-brand font-bold mb-2">Record your reflections:</label>
+                        <textarea id="reflect-28" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand focus:border-transparent transition h-32" placeholder="What helped you experience enoughness today?"></textarea>
+                        <div class="mt-4 flex flex-col md:flex-row gap-4">
+                            <input id="email-28" type="email" placeholder="Recipient's email" class="flex-grow p-2 rounded-lg border border-gray-200 text-sm">
+                            <button onclick="sendEmail(28)" class="bg-brand text-white px-6 py-2 rounded-lg font-bold hover:opacity-90 transition">Email Reflections</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 29 -->
+            <div id="day29" class="tab-content content-card hidden">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-8">
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> Before
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Decide ahead of time how you will reduce technology use today.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Inform others if necessary.</li>
+                                <li class="bg-brand-light p-4 rounded-lg italic">"Lord, help me become more attentive and less distracted."</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> During
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Read <strong>Psalm 46</strong> slowly.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Put away devices for extended periods if possible.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Notice how often you reach for stimulation automatically.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Spend time reading, walking, praying, resting, or talking with others.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Allow silence and slowness to return to your day.</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> After
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="font-semibold">Reflect:</li>
+                                <li class="ml-4">What did I notice when technology became quieter?</li>
+                                <li class="ml-4">How does constant stimulation affect my soul?</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Ask God to help you live more attentively.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> End the day with quiet stillness.</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="bg-gray-50 border-t border-gray-100 p-8">
+                        <label class="block text-brand font-bold mb-2">Record your reflections:</label>
+                        <textarea id="reflect-29" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand focus:border-transparent transition h-32" placeholder="What did you notice when technology became quieter?"></textarea>
+                        <div class="mt-4 flex flex-col md:flex-row gap-4">
+                            <input id="email-29" type="email" placeholder="Recipient's email" class="flex-grow p-2 rounded-lg border border-gray-200 text-sm">
+                            <button onclick="sendEmail(29)" class="bg-brand text-white px-6 py-2 rounded-lg font-bold hover:opacity-90 transition">Email Reflections</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 30 -->
+            <div id="day30" class="tab-content content-card hidden">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-8">
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> Before
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Begin your Sabbath slowly and intentionally.</li>
+                                <li class="bg-brand-light p-4 rounded-lg italic">"Lord, teach me to walk gently through this day."</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Release urgency wherever possible.</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> During
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Read <strong>Micah 6:8</strong> slowly.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Move through the day at a peaceful pace.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Speak gently to yourself and others.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Avoid forcing productivity or efficiency.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Take moments throughout the day to pause, breathe, and notice God's presence.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Let gentleness shape your words, thoughts, and actions.</li>
+                            </ul>
+                        </section>
+
+                        <section class="mb-10">
+                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
+                                <span class="w-8 h-px bg-brand mr-2"></span> After
+                            </h3>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="font-semibold">Reflect:</li>
+                                <li class="ml-4">What changes when I slow my pace?</li>
+                                <li class="ml-4">Where do I need more gentleness in my life?</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Thank God for moments of peace throughout the day.</li>
+                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Carry a slower spirit into the coming week.</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="bg-gray-50 border-t border-gray-100 p-8">
+                        <label class="block text-brand font-bold mb-2">Record your reflections:</label>
+                        <textarea id="reflect-30" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand focus:border-transparent transition h-32" placeholder="Where do you need more gentleness in your life?"></textarea>
+                        <div class="mt-4 flex flex-col md:flex-row gap-4">
+                            <input id="email-30" type="email" placeholder="Recipient's email" class="flex-grow p-2 rounded-lg border border-gray-200 text-sm">
+                            <button onclick="sendEmail(30)" class="bg-brand text-white px-6 py-2 rounded-lg font-bold hover:opacity-90 transition">Email Reflections</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 py-12 mt-12">
+        <div class="max-w-4xl mx-auto px-4 text-center text-gray-500">
+            <p class="font-bold text-brand mb-2 italic serif text-xl">Resting in God</p>
+            <p class="text-sm">A 10-Season Series on Spiritual Restoration</p>
+            <div class="mt-6 flex justify-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-brand"></span>
+                <span class="w-2 h-2 rounded-full bg-brand opacity-60"></span>
+                <span class="w-2 h-2 rounded-full bg-brand opacity-30"></span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            // Show selected tab content
+            document.getElementById(tabId).classList.remove('hidden');
+
+            // Reset all tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('text-gray-500');
+            });
+            // Highlight active button
+            const activeBtn = document.getElementById('tab-' + tabId);
+            activeBtn.classList.add('tab-active');
+            activeBtn.classList.remove('text-gray-500');
+
+            // Scroll to top of content
+            window.scrollTo({ top: 250, behavior: 'smooth' });
+        }
+
+        function sendEmail(day) {
+            const reflection = document.getElementById('reflect-' + day).value;
+            const email = document.getElementById('email-' + day).value;
+            
+            if (!reflection) {
+                alert("Please write something in the reflection box before sending.");
+                return;
+            }
+
+            const subject = encodeURIComponent(`Resting in God: Season 6 - Day ${day} Reflections`);
+            const body = encodeURIComponent(`Here are my reflections for Day ${day} of the Living Lightly series:\n\n${reflection}\n\n---\nResting in God Series`);
+            
+            // mailto link
+            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>
