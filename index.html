@@ -1,432 +1,1280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resting in God - Season 6: Living Lightly</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --brand-color: #365233;
-            --brand-light: #e9ede9;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fcfdfc;
-            color: #2d3748;
-        }
-        h1, h2, h3, .serif {
-            font-family: 'Playfair Display', serif;
-        }
-        .bg-brand { background-color: var(--brand-color); }
-        .text-brand { color: var(--brand-color); }
-        .border-brand { border-color: var(--brand-color); }
-        .bg-brand-light { background-color: var(--brand-light); }
-        
-        .tab-active {
-            border-bottom: 4px solid var(--brand-color);
-            color: var(--brand-color);
-            font-weight: 600;
-        }
-        .content-card {
-            animation: fadeIn 0.4s ease-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resting in God — Season 6: Living Lightly</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #365233;
+    --forest-dark: #243b22;
+    --forest-deep: #1a2d19;
+    --forest-light: #4a7045;
+    --forest-pale: #5e8a5a;
+    --gold: #c9a84c;
+    --gold-light: #e4c97e;
+    --gold-pale: #f5e8c4;
+    --cream: #fdf8f0;
+    --parchment: #f7f0e3;
+    --warm-white: #fefcf8;
+    --text-dark: #1e2b1c;
+    --text-mid: #3d5039;
+    --text-soft: #6b7f69;
+    --border-light: rgba(54,82,51,0.15);
+    --shadow-sm: 0 2px 12px rgba(30,43,28,0.08);
+    --shadow-md: 0 6px 24px rgba(30,43,28,0.12);
+    --shadow-lg: 0 16px 48px rgba(30,43,28,0.18);
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO HEADER ── */
+  .hero {
+    background: linear-gradient(160deg, var(--forest-deep) 0%, var(--forest) 45%, var(--forest-light) 100%);
+    position: relative;
+    padding: 56px 24px 48px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 30%, rgba(201,168,76,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 70%, rgba(201,168,76,0.07) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 40px;
+    background: var(--cream);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .hero-series {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 50px;
+    padding: 5px 16px;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 18px;
+  }
+  .hero-series .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2.8vw, 1.3rem);
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 6px;
+    font-weight: 300;
+  }
+  .hero-season {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 32px;
+  }
+  .hero-verse {
+    max-width: 480px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.08);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.6;
+    text-align: left;
+  }
+  .hero-verse cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.78rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-top: 8px;
+  }
+
+  /* ── LEAF DECORATION ── */
+  .leaf-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px 0 0;
+    opacity: 0.5;
+  }
+  .leaf-divider span { font-size: 18px; }
+  .leaf-divider .line { flex: 1; max-width: 80px; height: 1px; background: rgba(255,255,255,0.3); }
+
+  /* ── MAIN CONTAINER ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px 60px;
+  }
+
+  /* ── TAB NAV ── */
+  .tab-nav-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+    padding: 16px 0 0;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.04);
+  }
+  .tab-nav {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 0;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex-shrink: 0;
+    padding: 10px 18px;
+    border: 2px solid transparent;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    background: var(--parchment);
+    color: var(--text-soft);
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    position: relative;
+    bottom: -2px;
+  }
+  .tab-btn:hover {
+    background: #eee6d8;
+    color: var(--forest);
+  }
+  .tab-btn.active {
+    background: var(--forest);
+    color: #fff;
+    border-color: var(--forest);
+    box-shadow: 0 -3px 12px rgba(54,82,51,0.18);
+  }
+  .tab-btn .tab-icon {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  .tab-underline {
+    height: 3px;
+    background: var(--forest);
+    border-radius: 3px 3px 0 0;
+    margin-top: 2px;
+  }
+
+  /* ── TAB CONTENT ── */
+  .tab-content { display: none; animation: fadeSlide 0.32s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── INTRO TAB ── */
+  .intro-hero {
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding: 40px 36px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .intro-hero::after {
+    content: '🌿';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 72px;
+    opacity: 0.18;
+  }
+  .intro-hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .intro-hero p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 520px;
+  }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .intro-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .intro-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .intro-card .icon { font-size: 26px; margin-bottom: 10px; }
+  .intro-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--forest);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .intro-card p { font-size: 0.87rem; color: var(--text-soft); line-height: 1.55; }
+  .season-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0;
+  }
+  .season-badge {
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: var(--parchment);
+    border: 1.5px solid var(--border-light);
+    color: var(--text-soft);
+    cursor: default;
+    transition: all 0.18s;
+  }
+  .season-badge.current {
+    background: var(--forest);
+    color: #fff;
+    border-color: var(--forest);
+    box-shadow: 0 2px 8px rgba(54,82,51,0.22);
+  }
+  .intro-instructions {
+    background: var(--gold-pale);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    margin: 20px 0;
+  }
+  .intro-instructions h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--forest-dark);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .intro-instructions ul { list-style: none; padding: 0; }
+  .intro-instructions li {
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    padding: 7px 0 7px 26px;
+    position: relative;
+    line-height: 1.55;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .intro-instructions li:last-child { border-bottom: none; }
+  .intro-instructions li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 11px;
+    top: 9px;
+  }
+
+  /* ── DAY TAB ── */
+  .day-header {
+    background: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 60%, var(--forest-light) 100%);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding: 32px 32px 28px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .day-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 90% 50%, rgba(201,168,76,0.12) 0%, transparent 65%);
+  }
+  .day-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 50px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+  }
+  .day-scripture {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-style: italic;
+    color: rgba(255,255,255,0.90);
+    line-height: 1.55;
+    max-width: 560px;
+  }
+  .day-scripture cite {
+    display: block;
+    font-style: normal;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-top: 10px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    background: var(--warm-white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+  }
+  .section:hover { box-shadow: var(--shadow-md); }
+  .section-toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.18s;
+  }
+  .section-toggle:hover { background: rgba(54,82,51,0.04); }
+  .section-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .before .section-icon { background: rgba(201,168,76,0.15); }
+  .during .section-icon { background: rgba(54,82,51,0.12); }
+  .after .section-icon  { background: rgba(255,127,80,0.12); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--forest-dark);
+    flex: 1;
+  }
+  .before .section-title { color: #7a5c1a; }
+  .during .section-title { color: var(--forest-dark); }
+  .after .section-title  { color: #8b4a2a; }
+  .section-arrow {
+    font-size: 12px;
+    color: var(--text-soft);
+    transition: transform 0.25s;
+  }
+  .section.open .section-arrow { transform: rotate(180deg); }
+  .section-body {
+    display: none;
+    padding: 4px 22px 22px;
+    border-top: 1px solid var(--border-light);
+  }
+  .section.open .section-body { display: block; animation: fadeSlide 0.22s ease; }
+
+  /* ── PRAYER BOX ── */
+  .prayer-box {
+    background: linear-gradient(135deg, var(--gold-pale), #fdf4de);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 14px 0;
+  }
+  .prayer-box .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .prayer-box p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.08rem;
+    font-style: italic;
+    color: #5a3d10;
+    line-height: 1.6;
+  }
+
+  /* ── LIST ITEMS ── */
+  .practice-list { list-style: none; padding: 0; margin: 12px 0; }
+  .practice-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    font-size: 0.93rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+    border-bottom: 1px dashed rgba(54,82,51,0.10);
+  }
+  .practice-list li:last-child { border-bottom: none; }
+  .practice-list li::before {
+    content: '●';
+    color: var(--forest-pale);
+    font-size: 8px;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .section.before .practice-list li::before { color: var(--gold); }
+  .section.after .practice-list li::before { color: #c08050; }
+
+  /* ── REFLECTION QUESTIONS ── */
+  .reflect-q {
+    background: rgba(54,82,51,0.05);
+    border-left: 3px solid var(--forest-pale);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 10px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+
+  /* ── REFLECTION JOURNAL ── */
+  .journal-section {
+    background: var(--parchment);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-top: 20px;
+  }
+  .journal-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--forest-dark);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .journal-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 14px 16px;
+    border: 1.5px solid rgba(54,82,51,0.2);
+    border-radius: 8px;
+    background: var(--warm-white);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.65;
+    resize: vertical;
+    transition: border-color 0.18s;
+    outline: none;
+  }
+  .journal-textarea:focus { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(54,82,51,0.08); }
+  .journal-textarea::placeholder { color: rgba(54,82,51,0.35); font-style: italic; }
+  .email-row {
+    display: flex;
+    gap: 10px;
+    margin: 14px 0 0;
+    flex-wrap: wrap;
+  }
+  .email-field {
+    flex: 1;
+    min-width: 180px;
+    padding: 10px 14px;
+    border: 1.5px solid rgba(54,82,51,0.2);
+    border-radius: 8px;
+    background: var(--warm-white);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.88rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.18s;
+  }
+  .email-field:focus { border-color: var(--forest); box-shadow: 0 0 0 3px rgba(54,82,51,0.08); }
+  .email-field::placeholder { color: rgba(54,82,51,0.35); }
+  .btn-send {
+    padding: 10px 22px;
+    background: var(--forest);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.18s, transform 0.12s;
+    white-space: nowrap;
+  }
+  .btn-send:hover { background: var(--forest-dark); transform: translateY(-1px); }
+  .btn-send:active { transform: translateY(0); }
+  .email-toggle-row {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+  }
+  .email-option-btn {
+    padding: 7px 16px;
+    border-radius: 50px;
+    border: 1.5px solid var(--border-light);
+    background: transparent;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .email-option-btn.active {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: #fff;
+  }
+  .email-area { display: none; }
+  .email-area.show { display: block; animation: fadeSlide 0.2s ease; }
+  .toast {
+    display: none;
+    margin-top: 12px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.87rem;
+    font-weight: 700;
+  }
+  .toast.success {
+    background: rgba(54,82,51,0.12);
+    color: var(--forest-dark);
+    border: 1px solid rgba(54,82,51,0.25);
+  }
+  .toast.show { display: block; animation: fadeSlide 0.2s ease; }
+
+  /* ── SCRIPTURE HIGHLIGHT ── */
+  .scripture-ref {
+    display: inline-block;
+    background: rgba(54,82,51,0.08);
+    border: 1px solid rgba(54,82,51,0.18);
+    border-radius: 50px;
+    padding: 3px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--forest);
+    letter-spacing: 0.3px;
+    margin: 8px 0;
+    cursor: pointer;
+  }
+  .scripture-ref:hover { background: rgba(54,82,51,0.14); }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--forest-deep);
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    padding: 28px 16px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 40px;
+  }
+  .page-footer strong { color: var(--gold-light); }
+
+  /* ── PROGRESS BAR ── */
+  .progress-bar {
+    height: 3px;
+    background: var(--border-light);
+    border-radius: 3px;
+    margin: 16px 0 20px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--forest), var(--gold));
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+  .progress-label {
+    font-size: 11px;
+    color: var(--text-soft);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero { padding: 40px 16px 36px; }
+    .intro-hero { padding: 28px 22px; }
+    .intro-hero::after { display: none; }
+    .day-header { padding: 24px 20px 20px; }
+    .section-toggle { padding: 14px 16px; }
+    .section-body { padding: 4px 16px 16px; }
+    .journal-section { padding: 18px 16px; }
+    .tab-btn { padding: 8px 12px; font-size: 12px; }
+    .tab-btn .tab-icon { display: none; }
+    .email-row { flex-direction: column; }
+    .btn-send { width: 100%; text-align: center; }
+  }
+</style>
 </head>
-<body class="min-h-screen">
+<body>
 
-    <!-- Header -->
-    <header class="bg-brand text-white py-12 px-6 text-center shadow-lg">
-        <div class="max-w-4xl mx-auto">
-            <p class="uppercase tracking-widest text-sm opacity-90 mb-2">Season 6</p>
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Living Lightly</h1>
-            <p class="text-lg italic opacity-80">Learning Simplicity, Trust, and Freedom From Unnecessary Burdens</p>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-series"><span class="dot"></span> Resting in God Series <span class="dot"></span></div>
+  <h1 class="hero-title">Season 6:<br><em>Living Lightly</em></h1>
+  <p class="hero-subtitle">Learning Simplicity, Trust, and Freedom From Unnecessary Burdens</p>
+  <p class="hero-season">Season 6 of 10 &nbsp;·&nbsp; Days 26–30</p>
+  <div class="hero-verse">
+    "Come to me, all who labor and are heavy laden, and I will give you rest."
+    <cite>Matthew 11:28</cite>
+  </div>
+  <div class="leaf-divider">
+    <span class="line"></span>
+    <span>🌿</span>
+    <span class="line"></span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- TAB NAV -->
+  <div class="tab-nav-wrapper">
+    <nav class="tab-nav" role="tablist">
+      <button class="tab-btn active" onclick="switchTab('intro', this)" role="tab">
+        <span class="tab-icon">🏡</span>Welcome
+      </button>
+      <button class="tab-btn" onclick="switchTab('d26', this)" role="tab">
+        <span class="tab-icon">🍃</span>Day 26
+      </button>
+      <button class="tab-btn" onclick="switchTab('d27', this)" role="tab">
+        <span class="tab-icon">☀️</span>Day 27
+      </button>
+      <button class="tab-btn" onclick="switchTab('d28', this)" role="tab">
+        <span class="tab-icon">🌸</span>Day 28
+      </button>
+      <button class="tab-btn" onclick="switchTab('d29', this)" role="tab">
+        <span class="tab-icon">📵</span>Day 29
+      </button>
+      <button class="tab-btn" onclick="switchTab('d30', this)" role="tab">
+        <span class="tab-icon">🌾</span>Day 30
+      </button>
+    </nav>
+    <div class="tab-underline"></div>
+  </div>
+
+  <!-- ===== INTRO TAB ===== -->
+  <div id="tab-intro" class="tab-content active">
+    <div class="intro-hero">
+      <h2>Welcome to Season 6</h2>
+      <p>Many people carry more than they were meant to carry — hurry, clutter, pressure, comparison, worry, and endless striving. Over time, the soul becomes heavy. This season is an invitation to live more lightly with God.</p>
+    </div>
+
+    <div class="progress-label">Your journey through the series</div>
+    <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+
+    <div class="season-badges">
+      <span class="season-badge">Season 1</span>
+      <span class="season-badge">Season 2</span>
+      <span class="season-badge">Season 3</span>
+      <span class="season-badge">Season 4</span>
+      <span class="season-badge">Season 5</span>
+      <span class="season-badge current">Season 6 ← You are here</span>
+      <span class="season-badge">Season 7</span>
+      <span class="season-badge">Season 8</span>
+      <span class="season-badge">Season 9</span>
+      <span class="season-badge">Season 10</span>
+    </div>
+
+    <div class="intro-grid">
+      <div class="intro-card">
+        <div class="icon">🌱</div>
+        <h3>Slow Your Pace</h3>
+        <p>Each Sabbath Day begins with preparation — identifying burdens, distractions, or pressures you may need to release before the day begins.</p>
+      </div>
+      <div class="intro-card">
+        <div class="icon">🕊️</div>
+        <h3>Practice Rhythms</h3>
+        <p>During the Sabbath, engage the practices of simplicity, trust, contentment, and peaceful living. Let each one be gentle, not forced.</p>
+      </div>
+      <div class="intro-card">
+        <div class="icon">📖</div>
+        <h3>Reflect & Release</h3>
+        <p>After your Sabbath, pause to notice what helped your soul feel lighter. Gratitude and reflection seal what the Spirit has been doing.</p>
+      </div>
+      <div class="intro-card">
+        <div class="icon">✉️</div>
+        <h3>Share Your Journey</h3>
+        <p>Use the email feature in each day's tab to send your personal reflections to yourself or a trusted companion for accountability.</p>
+      </div>
+    </div>
+
+    <div class="intro-instructions">
+      <h3>🌿 How to Use These Guidelines</h3>
+      <ul>
+        <li>Each tab above represents one Sabbath Day of the season. Navigate using the Day buttons.</li>
+        <li>Each day has three accordion sections: <strong>Before</strong> (prepare), <strong>During</strong> (practice), and <strong>After</strong> (reflect). Tap any section to open it.</li>
+        <li>Simplicity is not about having less for its own sake — it is about creating more space for peace, presence, and trust in God.</li>
+        <li>Use the <strong>Journal & Reflect</strong> area at the bottom of each day to write your personal reflections freely.</li>
+        <li>After journaling, you can email your reflection to yourself or a spiritual companion using the email feature.</li>
+        <li>You do not need to complete every practice perfectly. Receive each Sabbath as a gift, not a task.</li>
+        <li>Sabbath reminds us that life does not depend entirely on our effort, control, or accumulation — trust God.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== DAY 26 ===== -->
+  <div id="tab-d26" class="tab-content">
+    <div class="day-header">
+      <div class="day-label">🍃 Sabbath Day 26 · Season 6</div>
+      <div class="day-scripture">
+        "Therefore I tell you, do not be anxious about your life, what you will eat or what you will drink… Look at the birds of the air… your heavenly Father feeds them."
+        <cite>Luke 12:22–31</cite>
+      </div>
+    </div>
+
+    <!-- BEFORE -->
+    <div class="section before open">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🕯️</div>
+        <span class="section-title">Before — Prepare Your Heart</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <ul class="practice-list">
+          <li>Notice areas of physical, emotional, or mental clutter in your life.</li>
+          <li>Choose one small area you can simplify today.</li>
+        </ul>
+        <div class="prayer-box">
+          <div class="label">✦ Prayer</div>
+          <p>"Lord, help me release what I do not truly need."</p>
         </div>
-    </header>
+      </div>
+    </div>
 
-    <main class="max-w-4xl mx-auto px-4 py-8">
-        
-        <!-- Tab Navigation -->
-        <div class="flex overflow-x-auto border-b border-gray-200 mb-8 scrollbar-hide no-scrollbar">
-            <button onclick="switchTab('intro')" id="tab-intro" class="tab-btn py-4 px-6 whitespace-nowrap tab-active">Intro</button>
-            <button onclick="switchTab('day26')" id="tab-day26" class="tab-btn py-4 px-6 whitespace-nowrap text-gray-500 hover:text-brand transition">Day 26</button>
-            <button onclick="switchTab('day27')" id="tab-day27" class="tab-btn py-4 px-6 whitespace-nowrap text-gray-500 hover:text-brand transition">Day 27</button>
-            <button onclick="switchTab('day28')" id="tab-day28" class="tab-btn py-4 px-6 whitespace-nowrap text-gray-500 hover:text-brand transition">Day 28</button>
-            <button onclick="switchTab('day29')" id="tab-day29" class="tab-btn py-4 px-6 whitespace-nowrap text-gray-500 hover:text-brand transition">Day 29</button>
-            <button onclick="switchTab('day30')" id="tab-day30" class="tab-btn py-4 px-6 whitespace-nowrap text-gray-500 hover:text-brand transition">Day 30</button>
+    <!-- DURING -->
+    <div class="section during">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🌿</div>
+        <span class="section-title">During — Practice Rhythms</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <span class="scripture-ref" title="Read this passage today">📖 Luke 12:22–31</span>
+        <ul class="practice-list">
+          <li>Read Luke 12:22–31 slowly.</li>
+          <li>Spend time organizing or clearing a small space peacefully and unhurriedly.</li>
+          <li>Avoid buying or accumulating unnecessary things today.</li>
+          <li>Notice how simplicity affects your emotional state.</li>
+          <li>Spend time enjoying what you already have.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- AFTER -->
+    <div class="section after">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🌅</div>
+        <span class="section-title">After — Reflect & Close</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <div class="reflect-q">What kinds of excess weigh me down?</div>
+        <div class="reflect-q">How did simplicity affect my peace today?</div>
+        <ul class="practice-list">
+          <li>Thank God for His daily provision.</li>
+          <li>End your Sabbath with gratitude for enough.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- JOURNAL -->
+    <div class="journal-section">
+      <h3>✍️ Journal &amp; Reflect</h3>
+      <textarea class="journal-textarea" id="journal-d26" placeholder="Write your reflections here… What did you notice? What did God say to you today?"></textarea>
+      <div class="email-toggle-row">
+        <button class="email-option-btn active" onclick="setEmailMode('d26','none',this)">Keep Private</button>
+        <button class="email-option-btn" onclick="setEmailMode('d26','self',this)">📧 Email Myself</button>
+        <button class="email-option-btn" onclick="setEmailMode('d26','other',this)">💌 Send to Someone</button>
+      </div>
+      <div id="email-area-d26" class="email-area">
+        <div class="email-row">
+          <input type="email" class="email-field" id="email-to-d26" placeholder="Recipient email address">
+          <button class="btn-send" onclick="sendReflection('d26')">✉️ Send Reflection</button>
         </div>
+      </div>
+      <div id="toast-d26" class="toast success"></div>
+    </div>
+  </div>
 
-        <!-- Content Area -->
-        <div id="content">
-            
-            <!-- Intro Tab -->
-            <div id="intro" class="tab-content content-card">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-                    <h2 class="text-3xl font-bold text-brand mb-6">How to Use These Guidelines</h2>
-                    <div class="prose prose-green max-w-none text-gray-700 leading-relaxed">
-                        <p class="mb-4">Many people carry more than they were meant to carry. We fill our lives with hurry, clutter, pressure, comparison, worry, and endless striving. Over time, the soul becomes heavy.</p>
-                        <p class="mb-6 font-semibold italic text-brand">This season is an invitation to live more lightly with God.</p>
-                        
-                        <div class="grid md:grid-cols-2 gap-6 my-8">
-                            <div class="bg-brand-light p-6 rounded-xl border-l-4 border-brand">
-                                <h3 class="font-bold text-brand mb-2">The Invitation</h3>
-                                <ul class="list-disc pl-5 space-y-1">
-                                    <li>Slow your pace</li>
-                                    <li>Simplify your surroundings</li>
-                                    <li>Loosen your grip on control</li>
-                                    <li>Receive life as a gift</li>
-                                </ul>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl border border-gray-200">
-                                <h3 class="font-bold text-brand mb-2">Simplicity</h3>
-                                <p class="text-sm italic">"Simplicity is not about having less for its own sake. It is about creating more space for peace, presence, and trust in God."</p>
-                            </div>
-                        </div>
+  <!-- ===== DAY 27 ===== -->
+  <div id="tab-d27" class="tab-content">
+    <div class="day-header">
+      <div class="day-label">☀️ Sabbath Day 27 · Season 6</div>
+      <div class="day-scripture">
+        "Therefore do not be anxious about tomorrow, for tomorrow will be anxious for itself. Sufficient for the day is its own trouble."
+        <cite>Matthew 6:25–34</cite>
+      </div>
+    </div>
 
-                        <h3 class="text-xl font-bold text-brand mt-8 mb-4">Your Daily Rhythm</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <span class="bg-brand text-white rounded-full h-6 w-6 flex items-center justify-center text-xs font-bold mr-3 mt-1 shrink-0">B</span>
-                                <div><strong>BEFORE:</strong> Prepare your heart by identifying burdens, distractions, or pressures you may need to release.</div>
-                            </div>
-                            <div class="flex items-start">
-                                <span class="bg-brand text-white rounded-full h-6 w-6 flex items-center justify-center text-xs font-bold mr-3 mt-1 shrink-0">D</span>
-                                <div><strong>DURING:</strong> Practice rhythms of simplicity, trust, contentment, and peaceful living.</div>
-                            </div>
-                            <div class="flex items-start">
-                                <span class="bg-brand text-white rounded-full h-6 w-6 flex items-center justify-center text-xs font-bold mr-3 mt-1 shrink-0">A</span>
-                                <div><strong>AFTER:</strong> Reflect on what helped your soul feel lighter and freer.</div>
-                            </div>
-                        </div>
-
-                        <div class="mt-12 text-center py-8 border-t border-gray-100">
-                            <p class="serif text-2xl italic text-gray-600 mb-2">"Come to me, all who labor and are heavy laden, and I will give you rest."</p>
-                            <p class="font-bold text-brand">Matthew 11:28</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Day Tabs (Generated via Template Pattern) -->
-            <!-- Day 26 -->
-            <div id="day26" class="tab-content content-card hidden">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div class="p-8">
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> Before
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Notice areas of physical, emotional, or mental clutter in your life.</li>
-                                <li class="bg-brand-light p-4 rounded-lg italic">"Lord, help me release what I do not truly need."</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Choose one small area you can simplify today.</li>
-                            </ul>
-                        </section>
-
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> During
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Read <strong>Luke 12:22-31</strong> slowly.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Spend time organizing or clearing a small space peacefully and unhurriedly.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Avoid buying or accumulating unnecessary things today.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Notice how simplicity affects your emotional state.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Spend time enjoying what you already have.</li>
-                            </ul>
-                        </section>
-
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> After
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="font-semibold">Reflect:</li>
-                                <li class="ml-4">What kinds of excess weigh me down?</li>
-                                <li class="ml-4">How did simplicity affect my peace today?</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Thank God for His daily provision.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> End your Sabbath with gratitude for enough.</li>
-                            </ul>
-                        </section>
-                    </div>
-                    <!-- Reflection Form -->
-                    <div class="bg-gray-50 border-t border-gray-100 p-8">
-                        <label class="block text-brand font-bold mb-2">Record your reflections:</label>
-                        <textarea id="reflect-26" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand focus:border-transparent transition h-32" placeholder="How did simplicity affect your peace today?"></textarea>
-                        <div class="mt-4 flex flex-col md:flex-row gap-4">
-                            <input id="email-26" type="email" placeholder="Recipient's email" class="flex-grow p-2 rounded-lg border border-gray-200 text-sm">
-                            <button onclick="sendEmail(26)" class="bg-brand text-white px-6 py-2 rounded-lg font-bold hover:opacity-90 transition">Email Reflections</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Day 27 -->
-            <div id="day27" class="tab-content content-card hidden">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div class="p-8">
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> Before
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Acknowledge worries about the future honestly before God.</li>
-                                <li class="bg-brand-light p-4 rounded-lg italic">"Lord, teach me to trust You one day at a time."</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Release the need to solve everything immediately.</li>
-                            </ul>
-                        </section>
-
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> During
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Read <strong>Matthew 6:25-34</strong> slowly.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Resist anxious planning throughout the day.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Whenever future worries arise, pause and breathe deeply.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Spend time doing something peaceful and grounding.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Practice staying present in today rather than living mentally in tomorrow.</li>
-                            </ul>
-                        </section>
-
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> After
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="font-semibold">Reflect:</li>
-                                <li class="ml-4">What future concerns are hardest for me to release?</li>
-                                <li class="ml-4">What helped me remain present today?</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Entrust your future to God again in prayer.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Rest in the awareness that God cares for you.</li>
-                            </ul>
-                        </section>
-                    </div>
-                    <div class="bg-gray-50 border-t border-gray-100 p-8">
-                        <label class="block text-brand font-bold mb-2">Record your reflections:</label>
-                        <textarea id="reflect-27" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand focus:border-transparent transition h-32" placeholder="What helped you remain present today?"></textarea>
-                        <div class="mt-4 flex flex-col md:flex-row gap-4">
-                            <input id="email-27" type="email" placeholder="Recipient's email" class="flex-grow p-2 rounded-lg border border-gray-200 text-sm">
-                            <button onclick="sendEmail(27)" class="bg-brand text-white px-6 py-2 rounded-lg font-bold hover:opacity-90 transition">Email Reflections</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Day 28 -->
-            <div id="day28" class="tab-content content-card hidden">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div class="p-8">
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> Before
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Notice any feelings of dissatisfaction, comparison, or striving.</li>
-                                <li class="bg-brand-light p-4 rounded-lg italic">"Lord, help me receive today as enough."</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Avoid unnecessary scrolling or comparison before your Sabbath begins.</li>
-                            </ul>
-                        </section>
-
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> During
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Read <strong>Philippians 4:11-13</strong> slowly.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Practice contentment throughout the day.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Enjoy ordinary things without needing more stimulation.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Resist comparing your life with others.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Spend time appreciating simple blessings already present in your life.</li>
-                            </ul>
-                        </section>
-
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> After
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="font-semibold">Reflect:</li>
-                                <li class="ml-4">What makes it difficult for me to feel content?</li>
-                                <li class="ml-4">What helped me experience enoughness today?</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Thank God for sustaining you faithfully.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> End your Sabbath peacefully.</li>
-                            </ul>
-                        </section>
-                    </div>
-                    <div class="bg-gray-50 border-t border-gray-100 p-8">
-                        <label class="block text-brand font-bold mb-2">Record your reflections:</label>
-                        <textarea id="reflect-28" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand focus:border-transparent transition h-32" placeholder="What helped you experience enoughness today?"></textarea>
-                        <div class="mt-4 flex flex-col md:flex-row gap-4">
-                            <input id="email-28" type="email" placeholder="Recipient's email" class="flex-grow p-2 rounded-lg border border-gray-200 text-sm">
-                            <button onclick="sendEmail(28)" class="bg-brand text-white px-6 py-2 rounded-lg font-bold hover:opacity-90 transition">Email Reflections</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Day 29 -->
-            <div id="day29" class="tab-content content-card hidden">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div class="p-8">
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> Before
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Decide ahead of time how you will reduce technology use today.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Inform others if necessary.</li>
-                                <li class="bg-brand-light p-4 rounded-lg italic">"Lord, help me become more attentive and less distracted."</li>
-                            </ul>
-                        </section>
-
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> During
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Read <strong>Psalm 46</strong> slowly.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Put away devices for extended periods if possible.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Notice how often you reach for stimulation automatically.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Spend time reading, walking, praying, resting, or talking with others.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Allow silence and slowness to return to your day.</li>
-                            </ul>
-                        </section>
-
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> After
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="font-semibold">Reflect:</li>
-                                <li class="ml-4">What did I notice when technology became quieter?</li>
-                                <li class="ml-4">How does constant stimulation affect my soul?</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Ask God to help you live more attentively.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> End the day with quiet stillness.</li>
-                            </ul>
-                        </section>
-                    </div>
-                    <div class="bg-gray-50 border-t border-gray-100 p-8">
-                        <label class="block text-brand font-bold mb-2">Record your reflections:</label>
-                        <textarea id="reflect-29" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand focus:border-transparent transition h-32" placeholder="What did you notice when technology became quieter?"></textarea>
-                        <div class="mt-4 flex flex-col md:flex-row gap-4">
-                            <input id="email-29" type="email" placeholder="Recipient's email" class="flex-grow p-2 rounded-lg border border-gray-200 text-sm">
-                            <button onclick="sendEmail(29)" class="bg-brand text-white px-6 py-2 rounded-lg font-bold hover:opacity-90 transition">Email Reflections</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Day 30 -->
-            <div id="day30" class="tab-content content-card hidden">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                    <div class="p-8">
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> Before
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Begin your Sabbath slowly and intentionally.</li>
-                                <li class="bg-brand-light p-4 rounded-lg italic">"Lord, teach me to walk gently through this day."</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Release urgency wherever possible.</li>
-                            </ul>
-                        </section>
-
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> During
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Read <strong>Micah 6:8</strong> slowly.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Move through the day at a peaceful pace.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Speak gently to yourself and others.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Avoid forcing productivity or efficiency.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Take moments throughout the day to pause, breathe, and notice God's presence.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Let gentleness shape your words, thoughts, and actions.</li>
-                            </ul>
-                        </section>
-
-                        <section class="mb-10">
-                            <h3 class="text-xs uppercase tracking-widest text-brand font-bold mb-4 flex items-center">
-                                <span class="w-8 h-px bg-brand mr-2"></span> After
-                            </h3>
-                            <ul class="space-y-3 text-gray-700">
-                                <li class="font-semibold">Reflect:</li>
-                                <li class="ml-4">What changes when I slow my pace?</li>
-                                <li class="ml-4">Where do I need more gentleness in my life?</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Thank God for moments of peace throughout the day.</li>
-                                <li class="flex items-start"><span class="text-brand mr-2">•</span> Carry a slower spirit into the coming week.</li>
-                            </ul>
-                        </section>
-                    </div>
-                    <div class="bg-gray-50 border-t border-gray-100 p-8">
-                        <label class="block text-brand font-bold mb-2">Record your reflections:</label>
-                        <textarea id="reflect-30" class="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand focus:border-transparent transition h-32" placeholder="Where do you need more gentleness in your life?"></textarea>
-                        <div class="mt-4 flex flex-col md:flex-row gap-4">
-                            <input id="email-30" type="email" placeholder="Recipient's email" class="flex-grow p-2 rounded-lg border border-gray-200 text-sm">
-                            <button onclick="sendEmail(30)" class="bg-brand text-white px-6 py-2 rounded-lg font-bold hover:opacity-90 transition">Email Reflections</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+    <div class="section before open">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🕯️</div>
+        <span class="section-title">Before — Prepare Your Heart</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <ul class="practice-list">
+          <li>Acknowledge worries about the future honestly before God.</li>
+          <li>Release the need to solve everything immediately.</li>
+        </ul>
+        <div class="prayer-box">
+          <div class="label">✦ Prayer</div>
+          <p>"Lord, teach me to trust You one day at a time."</p>
         </div>
+      </div>
+    </div>
 
-    </main>
+    <div class="section during">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🌿</div>
+        <span class="section-title">During — Practice Rhythms</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <span class="scripture-ref">📖 Matthew 6:25–34</span>
+        <ul class="practice-list">
+          <li>Read Matthew 6:25–34 slowly.</li>
+          <li>Resist anxious planning throughout the day.</li>
+          <li>Whenever future worries arise, pause and breathe deeply.</li>
+          <li>Spend time doing something peaceful and grounding.</li>
+          <li>Practice staying present in today rather than living mentally in tomorrow.</li>
+        </ul>
+      </div>
+    </div>
 
-    <footer class="bg-white border-t border-gray-100 py-12 mt-12">
-        <div class="max-w-4xl mx-auto px-4 text-center text-gray-500">
-            <p class="font-bold text-brand mb-2 italic serif text-xl">Resting in God</p>
-            <p class="text-sm">A 10-Season Series on Spiritual Restoration</p>
-            <div class="mt-6 flex justify-center space-x-2">
-                <span class="w-2 h-2 rounded-full bg-brand"></span>
-                <span class="w-2 h-2 rounded-full bg-brand opacity-60"></span>
-                <span class="w-2 h-2 rounded-full bg-brand opacity-30"></span>
-            </div>
+    <div class="section after">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🌅</div>
+        <span class="section-title">After — Reflect & Close</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <div class="reflect-q">What future concerns are hardest for me to release?</div>
+        <div class="reflect-q">What helped me remain present today?</div>
+        <ul class="practice-list">
+          <li>Entrust your future to God again in prayer.</li>
+          <li>Rest in the awareness that God cares for you.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="journal-section">
+      <h3>✍️ Journal &amp; Reflect</h3>
+      <textarea class="journal-textarea" id="journal-d27" placeholder="Write your reflections here… What future worries did you notice? What helped you stay present?"></textarea>
+      <div class="email-toggle-row">
+        <button class="email-option-btn active" onclick="setEmailMode('d27','none',this)">Keep Private</button>
+        <button class="email-option-btn" onclick="setEmailMode('d27','self',this)">📧 Email Myself</button>
+        <button class="email-option-btn" onclick="setEmailMode('d27','other',this)">💌 Send to Someone</button>
+      </div>
+      <div id="email-area-d27" class="email-area">
+        <div class="email-row">
+          <input type="email" class="email-field" id="email-to-d27" placeholder="Recipient email address">
+          <button class="btn-send" onclick="sendReflection('d27')">✉️ Send Reflection</button>
         </div>
-    </footer>
+      </div>
+      <div id="toast-d27" class="toast success"></div>
+    </div>
+  </div>
 
-    <script>
-        function switchTab(tabId) {
-            // Hide all tab content
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            // Show selected tab content
-            document.getElementById(tabId).classList.remove('hidden');
+  <!-- ===== DAY 28 ===== -->
+  <div id="tab-d28" class="tab-content">
+    <div class="day-header">
+      <div class="day-label">🌸 Sabbath Day 28 · Season 6</div>
+      <div class="day-scripture">
+        "I have learned, in whatever situation I am, to be content. I can do all things through him who strengthens me."
+        <cite>Philippians 4:11–13</cite>
+      </div>
+    </div>
 
-            // Reset all tab buttons
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('tab-active');
-                btn.classList.add('text-gray-500');
-            });
-            // Highlight active button
-            const activeBtn = document.getElementById('tab-' + tabId);
-            activeBtn.classList.add('tab-active');
-            activeBtn.classList.remove('text-gray-500');
+    <div class="section before open">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🕯️</div>
+        <span class="section-title">Before — Prepare Your Heart</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <ul class="practice-list">
+          <li>Notice any feelings of dissatisfaction, comparison, or striving.</li>
+          <li>Avoid unnecessary scrolling or comparison before your Sabbath begins.</li>
+        </ul>
+        <div class="prayer-box">
+          <div class="label">✦ Prayer</div>
+          <p>"Lord, help me receive today as enough."</p>
+        </div>
+      </div>
+    </div>
 
-            // Scroll to top of content
-            window.scrollTo({ top: 250, behavior: 'smooth' });
-        }
+    <div class="section during">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🌿</div>
+        <span class="section-title">During — Practice Rhythms</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <span class="scripture-ref">📖 Philippians 4:11–13</span>
+        <ul class="practice-list">
+          <li>Read Philippians 4:11–13 slowly.</li>
+          <li>Practice contentment throughout the day.</li>
+          <li>Enjoy ordinary things without needing more stimulation.</li>
+          <li>Resist comparing your life with others.</li>
+          <li>Spend time appreciating simple blessings already present in your life.</li>
+        </ul>
+      </div>
+    </div>
 
-        function sendEmail(day) {
-            const reflection = document.getElementById('reflect-' + day).value;
-            const email = document.getElementById('email-' + day).value;
-            
-            if (!reflection) {
-                alert("Please write something in the reflection box before sending.");
-                return;
-            }
+    <div class="section after">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🌅</div>
+        <span class="section-title">After — Reflect & Close</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <div class="reflect-q">What makes it difficult for me to feel content?</div>
+        <div class="reflect-q">What helped me experience enoughness today?</div>
+        <ul class="practice-list">
+          <li>Thank God for sustaining you faithfully.</li>
+          <li>End your Sabbath peacefully.</li>
+        </ul>
+      </div>
+    </div>
 
-            const subject = encodeURIComponent(`Resting in God: Season 6 - Day ${day} Reflections`);
-            const body = encodeURIComponent(`Here are my reflections for Day ${day} of the Living Lightly series:\n\n${reflection}\n\n---\nResting in God Series`);
-            
-            // mailto link
-            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-        }
-    </script>
+    <div class="journal-section">
+      <h3>✍️ Journal &amp; Reflect</h3>
+      <textarea class="journal-textarea" id="journal-d28" placeholder="Write your reflections here… What does 'enough' feel like for you today?"></textarea>
+      <div class="email-toggle-row">
+        <button class="email-option-btn active" onclick="setEmailMode('d28','none',this)">Keep Private</button>
+        <button class="email-option-btn" onclick="setEmailMode('d28','self',this)">📧 Email Myself</button>
+        <button class="email-option-btn" onclick="setEmailMode('d28','other',this)">💌 Send to Someone</button>
+      </div>
+      <div id="email-area-d28" class="email-area">
+        <div class="email-row">
+          <input type="email" class="email-field" id="email-to-d28" placeholder="Recipient email address">
+          <button class="btn-send" onclick="sendReflection('d28')">✉️ Send Reflection</button>
+        </div>
+      </div>
+      <div id="toast-d28" class="toast success"></div>
+    </div>
+  </div>
+
+  <!-- ===== DAY 29 ===== -->
+  <div id="tab-d29" class="tab-content">
+    <div class="day-header">
+      <div class="day-label">📵 Sabbath Day 29 · Season 6</div>
+      <div class="day-scripture">
+        "Be still, and know that I am God. I will be exalted among the nations, I will be exalted in the earth!"
+        <cite>Psalm 46</cite>
+      </div>
+    </div>
+
+    <div class="section before open">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🕯️</div>
+        <span class="section-title">Before — Prepare Your Heart</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <ul class="practice-list">
+          <li>Decide ahead of time how you will reduce technology use today.</li>
+          <li>Inform others if necessary.</li>
+        </ul>
+        <div class="prayer-box">
+          <div class="label">✦ Prayer</div>
+          <p>"Lord, help me become more attentive and less distracted."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section during">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🌿</div>
+        <span class="section-title">During — Practice Rhythms</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <span class="scripture-ref">📖 Psalm 46</span>
+        <ul class="practice-list">
+          <li>Read Psalm 46 slowly.</li>
+          <li>Put away devices for extended periods if possible.</li>
+          <li>Notice how often you reach for stimulation automatically.</li>
+          <li>Spend time reading, walking, praying, resting, or talking with others.</li>
+          <li>Allow silence and slowness to return to your day.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section after">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🌅</div>
+        <span class="section-title">After — Reflect & Close</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <div class="reflect-q">What did I notice when technology became quieter?</div>
+        <div class="reflect-q">How does constant stimulation affect my soul?</div>
+        <ul class="practice-list">
+          <li>Ask God to help you live more attentively.</li>
+          <li>End the day with quiet stillness.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="journal-section">
+      <h3>✍️ Journal &amp; Reflect</h3>
+      <textarea class="journal-textarea" id="journal-d29" placeholder="Write your reflections here… What did silence reveal? What was hardest to put down?"></textarea>
+      <div class="email-toggle-row">
+        <button class="email-option-btn active" onclick="setEmailMode('d29','none',this)">Keep Private</button>
+        <button class="email-option-btn" onclick="setEmailMode('d29','self',this)">📧 Email Myself</button>
+        <button class="email-option-btn" onclick="setEmailMode('d29','other',this)">💌 Send to Someone</button>
+      </div>
+      <div id="email-area-d29" class="email-area">
+        <div class="email-row">
+          <input type="email" class="email-field" id="email-to-d29" placeholder="Recipient email address">
+          <button class="btn-send" onclick="sendReflection('d29')">✉️ Send Reflection</button>
+        </div>
+      </div>
+      <div id="toast-d29" class="toast success"></div>
+    </div>
+  </div>
+
+  <!-- ===== DAY 30 ===== -->
+  <div id="tab-d30" class="tab-content">
+    <div class="day-header">
+      <div class="day-label">🌾 Sabbath Day 30 · Season 6</div>
+      <div class="day-scripture">
+        "He has told you, O man, what is good; and what does the Lord require of you but to do justice, and to love kindness, and to walk humbly with your God?"
+        <cite>Micah 6:8</cite>
+      </div>
+    </div>
+
+    <div class="section before open">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🕯️</div>
+        <span class="section-title">Before — Prepare Your Heart</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <ul class="practice-list">
+          <li>Begin your Sabbath slowly and intentionally.</li>
+          <li>Release urgency wherever possible.</li>
+        </ul>
+        <div class="prayer-box">
+          <div class="label">✦ Prayer</div>
+          <p>"Lord, teach me to walk gently through this day."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section during">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🌿</div>
+        <span class="section-title">During — Practice Rhythms</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <span class="scripture-ref">📖 Micah 6:8</span>
+        <ul class="practice-list">
+          <li>Read Micah 6:8 slowly.</li>
+          <li>Move through the day at a peaceful pace.</li>
+          <li>Speak gently to yourself and others.</li>
+          <li>Avoid forcing productivity or efficiency.</li>
+          <li>Take moments throughout the day to pause, breathe, and notice God's presence.</li>
+          <li>Let gentleness shape your words, thoughts, and actions.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section after">
+      <button class="section-toggle" onclick="toggleSection(this)">
+        <div class="section-icon">🌅</div>
+        <span class="section-title">After — Reflect & Close</span>
+        <span class="section-arrow">▼</span>
+      </button>
+      <div class="section-body">
+        <div class="reflect-q">What changes when I slow my pace?</div>
+        <div class="reflect-q">Where do I need more gentleness in my life?</div>
+        <ul class="practice-list">
+          <li>Thank God for moments of peace throughout the day.</li>
+          <li>Carry a slower spirit into the coming week.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="journal-section">
+      <h3>✍️ Journal &amp; Reflect</h3>
+      <textarea class="journal-textarea" id="journal-d30" placeholder="Write your reflections here… What changed when you slowed down? Where do you need more gentleness?"></textarea>
+      <div class="email-toggle-row">
+        <button class="email-option-btn active" onclick="setEmailMode('d30','none',this)">Keep Private</button>
+        <button class="email-option-btn" onclick="setEmailMode('d30','self',this)">📧 Email Myself</button>
+        <button class="email-option-btn" onclick="setEmailMode('d30','other',this)">💌 Send to Someone</button>
+      </div>
+      <div id="email-area-d30" class="email-area">
+        <div class="email-row">
+          <input type="email" class="email-field" id="email-to-d30" placeholder="Recipient email address">
+          <button class="btn-send" onclick="sendReflection('d30')">✉️ Send Reflection</button>
+        </div>
+      </div>
+      <div id="toast-d30" class="toast success"></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <strong>Resting in God</strong> &nbsp;·&nbsp; Season 6: Living Lightly &nbsp;·&nbsp; Days 26–30<br>
+  <span style="font-size:10px;margin-top:6px;display:block;">A 10-Season Sabbath Devotional Journey</span>
+</footer>
+
+<script>
+  var emailModes = {};
+
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(function(el) {
+      el.classList.remove('active');
+    });
+    document.querySelectorAll('.tab-btn').forEach(function(el) {
+      el.classList.remove('active');
+    });
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleSection(btn) {
+    var section = btn.closest('.section');
+    section.classList.toggle('open');
+  }
+
+  function setEmailMode(day, mode, btn) {
+    emailModes[day] = mode;
+    var row = btn.closest('.email-toggle-row');
+    row.querySelectorAll('.email-option-btn').forEach(function(b) {
+      b.classList.remove('active');
+    });
+    btn.classList.add('active');
+
+    var area = document.getElementById('email-area-' + day);
+    if (mode === 'none') {
+      area.classList.remove('show');
+    } else if (mode === 'self') {
+      area.classList.add('show');
+      document.getElementById('email-to-' + day).placeholder = 'Your own email address';
+    } else {
+      area.classList.add('show');
+      document.getElementById('email-to-' + day).placeholder = 'Spiritual companion\'s email address';
+    }
+    document.getElementById('toast-' + day).classList.remove('show');
+  }
+
+  function sendReflection(day) {
+    var reflection = document.getElementById('journal-' + day).value.trim();
+    var emailTo = document.getElementById('email-to-' + day).value.trim();
+    var toast = document.getElementById('toast-' + day);
+
+    if (!reflection) {
+      toast.textContent = '✏️ Please write your reflection before sending.';
+      toast.className = 'toast success show';
+      return;
+    }
+    if (!emailTo || !emailTo.includes('@')) {
+      toast.textContent = '📧 Please enter a valid email address.';
+      toast.className = 'toast success show';
+      return;
+    }
+
+    var dayLabels = { d26: 'Day 26 — Releasing Excess', d27: 'Day 27 — Trusting God with Tomorrow', d28: 'Day 28 — Enoughness', d29: 'Day 29 — Sabbath from Technology', d30: 'Day 30 — Walking Gently Through Life' };
+    var subject = encodeURIComponent('Resting in God — Season 6: ' + (dayLabels[day] || ('Reflection')));
+    var body = encodeURIComponent('My reflection for ' + (dayLabels[day] || day) + ':\n\n' + reflection + '\n\n— Sent from the Resting in God Sabbath Guide, Season 6: Living Lightly');
+    var mailto = 'mailto:' + emailTo + '?subject=' + subject + '&body=' + body;
+
+    window.location.href = mailto;
+
+    toast.textContent = '✅ Your email client has been opened with your reflection ready to send.';
+    toast.className = 'toast success show';
+  }
+
+  // Open first section of each day by default
+  document.querySelectorAll('.section.before').forEach(function(s) {
+    s.classList.add('open');
+  });
+</script>
 </body>
 </html>
